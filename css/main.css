@@ -20,7 +20,8 @@ ul, ol {
   list-style-type: none;
 }
 h1, .h1 {
-  font-size: 48px;
+  font-size: 55px;
+  font-weight: 800;
 }
 
 .header {
