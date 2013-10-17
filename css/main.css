@@ -13,6 +13,8 @@ body,html {
   font-size: 18px;
   text-align: center;
 }
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 
 ul, ol {
   padding: 0;
@@ -26,7 +28,6 @@ h1, .h1 {
   font-size: 55px;
   font-weight: 800;
 }
-
 .header {
   height: auto;
   background-color: #ac2931;
