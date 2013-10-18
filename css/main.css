@@ -65,7 +65,7 @@ h1, .h1 {
   background-image: url(../img/icon_twitter.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 16px 16px;
+  background-size: 16px 14px;
 }
 .icon-ribbon {
   background-image: url(../img/icon_ribbon.png);
@@ -78,6 +78,12 @@ h1, .h1 {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 12px 16px;
+}
+.icon-github {
+  background-image: url(../img/icon_github.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 22px 22px;
 }
 .section {
   padding: 30px 0;
