@@ -180,6 +180,26 @@ h1, .h1 {
   background-size: 320px 70px;
 }
 
+#conferences a,
+#conferences-about a {
+  color: white;
+  text-decoration: underline;
+}
+#conferences table {
+  margin: 0 auto;
+}
+#conferences th,
+#conferences td {
+  text-align: left;
+  padding: 0.5em 1em;
+}
+#conferences th {
+  color: #811F25;
+}
+#conferences thead tr,
+#conferences tr:nth-child(even) {
+  background-color: #AC2931;
+}
 @media (min-width: 480px) {
   .inner {
     width: 80%;
