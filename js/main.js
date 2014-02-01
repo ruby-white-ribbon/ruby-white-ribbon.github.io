@@ -32,9 +32,9 @@
 //   });
 // });
 
-var Confs = function(selector, url) {
+var Confs = function(selector, urls) {
   this.element = $(selector);
-  this.fetch(url, $.proxy(this.render, this));
+  this.fetch(urls, $.proxy(this.render, this));
 };
 
 Confs.data = [
@@ -114,6 +114,42 @@ Confs.data = [
     name: "Ruby DCamp",
     twitter: "ruby_dcamp",
     coc: { url: "http://rubydcamp.org/coc" }
+  }, {
+    name: "RubyConf",
+    twitter: "rubyconf",
+    coc: { url: "http://rubyconf.org/policies" }
+  }, {
+    name: "LoneStarRuby",
+    twitter: "lonestarruby",
+    coc: { url: "http://www.lonestarruby.org/2013/lsrc#legal-information" }
+  }, {
+    name: "GoRuCo",
+    twitter: "goruco",
+    coc: { url: "http://goruco.com/code-of-conduct" }
+  }, {
+    name: "Nickel City Ruby Conference",
+    twitter: "nickelcityruby",
+    coc: { url: "https://github.com/nickelcityruby/code-of-conduct/blob/master/code_of_conduct.md" }
+  }, {
+    name: "Cascadia Ruby",
+    twitter: "cascadiaruby",
+    coc: { url: "http://cascadiaruby.com/policies" }
+  }, {
+    name: "RubyNation",
+    twitter: "rubynation",
+    coc: { url: "http://www.rubynation.org/code_of_conduct" }
+  }, {
+    name: "Ruby Lugdunum",
+    twitter: "rulu",
+    coc: { url: "http://2013.rulu.eu/policies" }
+  }, {
+    name: "Garden City RubyConf",
+    twitter: "gardencityrb",
+    coc: { url: "http://www.gardencityruby.org/code-of-conduct" }
+  }, {
+    name: "",
+    twitter: "",
+    coc: { url: "" }
   },
 ];
 Confs.find = function(conf) {
@@ -121,9 +157,14 @@ Confs.find = function(conf) {
 }
 
 Confs.prototype = $.extend({
-  fetch: function(url, callback) {
-    $.get(url, function(data, status) {
-      var confs = JSON.parse(window.atob(data.content.replace(/\s/g, '')));
+  fetch: function(urls, callback) {
+    var requests = $.map(urls, function(url) { return $.get(url) });
+    var confs = [];
+
+    $.when.apply(this, requests).then(function() {
+      $.each(arguments, function() {
+        confs = confs.concat(JSON.parse(window.atob(this[0].content.replace(/\s/g, ''))));
+      });
 
       $.each(confs, function() {
         var conf = Confs.find(this);
@@ -132,7 +173,7 @@ Confs.prototype = $.extend({
         }
       });
 
-      callback(confs);
+      callback.call(this, confs);
     });
   },
   render: function(data, state) {
@@ -155,6 +196,10 @@ Confs.prototype = $.extend({
 });
 
 $(function() {
-  var url = 'https://api.github.com/repos/svenfuchs/ruby-conferences-site/contents/data/current.json';
-  var confs = new Confs('#conferences tbody', url);
+  var urls = [
+    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/current.json',
+    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/tba.json',
+    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/past.json'
+  ];
+  var confs = new Confs('#conferences tbody', urls);
 });
