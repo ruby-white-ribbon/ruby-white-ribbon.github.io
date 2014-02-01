@@ -85,6 +85,9 @@ Confs.data = {
   },
   "Ruby DCamp": {
     coc: { url: "http://rubydcamp.org/coc" }
+  },
+  "EuRuKo": {
+    coc: { url: "http://euruko2013.org/codeofconduct" }
   }
 };
 
