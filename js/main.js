@@ -21,13 +21,16 @@
   }
 }());
 
-$(function() {
-  $('.header a:not(.external)').on('click', function(e) {
-    e.preventDefault();
-    var to = $(this).attr('href');
-    $('html, body').animate({scrollTop: $(to).offset().top }, '5000');
-  });
-});
+// unfortunately this breaks links from pages other then /,
+// e.g. links on /conferences, so I'm commenting it out for now
+//
+// $(function() {
+//   $('.header a:not(.external)').on('click', function(e) {
+//     e.preventDefault();
+//     var to = $(this).attr('href');
+//     $('html, body').animate({scrollTop: $(to).offset().top }, '5000');
+//   });
+// });
 
 var Confs = function(selector, url) {
   this.element = $(selector);
