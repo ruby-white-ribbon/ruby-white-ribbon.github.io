@@ -37,59 +37,88 @@ var Confs = function(selector, url) {
   this.fetch(url, $.proxy(this.render, this));
 };
 
-Confs.data = {
-  "MountainWest RubyConf": {
+Confs.data = [
+  {
+    name: "MountainWest RubyConf",
+    twitter: "mwrc",
     coc: { url: "http://mtnwestrubyconf.org" }
-  },
-  "Los Angeles Ruby Conference": {
+  }, {
+    name: "Los Angeles Ruby Conference",
+    twitter: "larubyconf",
     coc: { url: "http://larubyconf.com/code-of-conduct" }
-  },
-  "Big Ruby": {
+  }, {
+    name: "Big Ruby",
+    twitter: "bigrubyconf",
     coc: { url: "http://www.bigrubyconf.com/code-of-conduct.html" }
-  },
-  "RubySauna": {
+  }, {
+    name: "RubySauna",
+    twitter: "rubysauna",
     coc: { url: "http://www.rubysauna.org/conduct" }
-  },
-  "Ruby on Ales": {
+  }, {
+    name: "Ruby on Ales",
+    twitter: "rbonales",
     coc: { url: "http://onales.com/code-of-conduct" }
-  },
-  "RubyConf India": {
+  }, {
+    name: "RubyConf India",
+    twitter: "rubyconfindia",
     coc: { url: "http://rubyconfindia.org/2014/code.html" }
-  },
-  "RubyConf Philippines": {
+  }, {
+    name: "RubyConf Philippines",
+    twitter: "rubyconfph",
     coc: { url: "http://rubyconf.ph/#codeofconduct" }
-  },
-  "RailsConf": {
+  }, {
+    name: "RailsConf",
+    twitter: "railsconf",
     coc: { url: "http://www.railsconf.com/policies" }
-  },
-  "Abril Pro Ruby": {
+  }, {
+    name: "Abril Pro Ruby",
+    twitter: "abrilproruby",
     coc: { url: "http://abrilproruby.com/en/code-of-conduct" }
-  },
-  "Scottish Ruby Conf": {
+  }, {
+    name: "Scottish Ruby Conf",
+    twitter: "scotrubyconf",
     coc: { url: "http://2014.scottishrubyconference.com/conduct" }
-  },
-  "RubyConf Uruguay": {
+  }, {
+    name: "RubyConf Uruguay",
+    twitter: "rubyconfuruguay",
     coc: { url: "http://www.rubyconfuruguay.org/en/conference_editions/8/pages/1" }
-  },
-  "Burlington Ruby Conference": {
+  }, {
+    name: "EuRuKo",
+    twitter: "euruko",
+    coc: { url: "http://euruko2013.org/codeofconduct" }
+  }, {
+    name: "Burlington Ruby Conference",
+    twitter: "btvrubyconf",
     coc: { url: "http://burlingtonrubyconference.com/conduct.html" }
-  },
-  "Frozen Rails": {
+  }, {
+    name: "Steel City Ruby",
+    twitter: "steelcityruby",
+    coc: { planned: true }
+  }, {
+    name: "Madison Ruby Conference",
+    twitter: "madisonruby",
+    coc: { planned: true }
+  }, {
+    name: "Frozen Rails",
+    twitter: "frozenrails",
     coc: { url: "http://2014.frozenrails.eu/code" }
-  },
-  "Barcelona Ruby Conf": {
+  }, {
+    name: "Barcelona Ruby Conf",
+    twitter: "baruco",
     coc: { url: "http://www.baruco.org/code_of_conduct" }
-  },
-  "Golden Gate Ruby Conference": {
+  }, {
+    name: "Golden Gate Ruby Conference",
+    twitter: "gogaruco",
     coc: { url: "http://gogaruco.com/#conduct-heading" }
-  },
-  "Ruby DCamp": {
+  }, {
+    name: "Ruby DCamp",
+    twitter: "ruby_dcamp",
     coc: { url: "http://rubydcamp.org/coc" }
   },
-  "EuRuKo": {
-    coc: { url: "http://euruko2013.org/codeofconduct" }
-  }
-};
+];
+Confs.find = function(conf) {
+  return $.grep(Confs.data, function(c) { if(conf.name == c.name || conf.twitter == c.twitter) return c; })[0]
+}
 
 Confs.prototype = $.extend({
   fetch: function(url, callback) {
@@ -97,8 +126,9 @@ Confs.prototype = $.extend({
       var confs = JSON.parse(window.atob(data.content.replace(/\s/g, '')));
 
       $.each(confs, function() {
-        if(Confs.data[this.name]) {
-          this.coc = Confs.data[this.name].coc
+        var conf = Confs.find(this);
+        if(conf) {
+          this.coc = conf.coc;
         }
       });
 
@@ -113,10 +143,12 @@ Confs.prototype = $.extend({
     row.append('<td><a href="' + data.url + '">' + data.name + '</a></td>');
     row.append('<td>' + data.dates + '</td>');
     row.append('<td><a href="http://twitter.com/' + data.twitter + '">@' + data.twitter + '</a></td>');
-    if(data.coc) {
-      row.append('<td><a href="' + data.coc.url + '">Yes</a></td>');
-    } else {
+    if(!data.coc) {
       row.append('<td>No</td>');
+    } else if(data.coc.url) {
+      row.append('<td><a href="' + data.coc.url + '">Yes</a></td>');
+    } else if(data.coc.planned) {
+      row.append('<td>Planned</td>');
     }
     this.element.append(row);
   }
