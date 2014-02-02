@@ -197,9 +197,48 @@ h1, .h1 {
   color: #811F25;
 }
 #conferences thead tr,
-#conferences tr:nth-child(even) {
+#conferences tbody tr:nth-child(even) {
   background-color: #AC2931;
 }
+#conferences a.fn {
+  vertical-align: super;
+  font-size: 0.7em;
+}
+#conferences tfoot {
+  font-size: 0.85em;
+}
+#conferences tfoot tr:first-child td {
+  padding-top: 1em;
+}
+#conferences tfoot ol {
+  counter-reset: li;
+  margin-left: 0;
+  padding-left: 0;
+}
+#conferences tfoot li {
+  position: relative;
+  padding: 1em;
+  list-style: none;
+}
+#conferences tfoot li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1em;
+  width: 2em;
+  color: #fff;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#conferences tfoot li p:first-child {
+  margin-top: 0;
+}
+#conferences tfoot li p:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 480px) {
   .inner {
     width: 80%;

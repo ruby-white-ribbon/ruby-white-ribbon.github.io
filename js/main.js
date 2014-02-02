@@ -33,7 +33,8 @@
 // });
 
 var Confs = function(selector, urls) {
-  this.element = $(selector);
+  this.conferences = $(selector + ' tbody');
+  this.footnotes = $(selector + ' tfoot ol');
   this.fetch(urls, $.proxy(this.render, this));
 };
 
@@ -101,11 +102,11 @@ Confs.data = [
   }, {
     name: "Steel City Ruby",
     twitter: "steelcityruby",
-    coc: { planned: true }
+    coc: { text: "Planned" }
   }, {
     name: "Madison Ruby Conference",
     twitter: "madisonruby",
-    coc: { planned: true }
+    coc: { text: "Planned" }
   }, {
     name: "Frozen Rails",
     twitter: "frozenrails",
@@ -157,11 +158,19 @@ Confs.data = [
   }, {
     name: "RubyConf Taiwan",
     twitter: "rubytaiwan",
-    coc: { planned: true }
+    coc: { text: "Planned" }
   }, {
     name: "wroc_love.rb",
     twitter: "wrocloverb",
-    coc: { planned: true }
+    coc: { text: "Planned" }
+  }, {
+    name: "RubyConf Argentina",
+    twitter: "rubyconfar",
+    coc: {
+      text: "Other",
+      url: "http://rubyconfargentina.org/en/#admission-disclaimer",
+      note: "<p>Argentinian laws are strict about discrimination and harassment issues: Any kind of discrimination or harassment related to gender, race or religion is considered a felony in Argentina.</p>\n<p>The conference has the following statement in the footer of their website, and the same is announced to the attendees during the event: <em>The event organizers reserve the right to refuse admission or expel any participant engaging in incorrect behavior in accordance with the provisions of law.</em></p>\n<p>The conference takes aggressive behavior very seriously and does not allow such conducts within the hours of the conference.</p>"
+    }
   },
 
 ];
@@ -169,7 +178,7 @@ Confs.find = function(conf) {
   return $.grep(Confs.data, function(c) { if(conf.name == c.name || conf.twitter == c.twitter) return c; })[0]
 }
 
-Confs.prototype = $.extend({
+Confs.prototype = {
   fetch: function(urls, callback) {
     var requests = $.map(urls, function(url) { return $.get(url) });
     var confs = [];
@@ -190,23 +199,61 @@ Confs.prototype = $.extend({
     });
   },
   render: function(data, state) {
-    $.each(data, $.proxy(function(ix, row) { this.renderRow(row) }, this));
-  },
-  renderRow: function(data) {
-    var row = $('<tr></tr>');
-    row.append('<td><a href="' + data.url + '">' + data.name + '</a></td>');
-    row.append('<td>' + data.dates + '</td>');
-    row.append('<td><a href="http://twitter.com/' + data.twitter + '">@' + data.twitter + '</a></td>');
-    if(!data.coc) {
-      row.append('<td>?</td>');
-    } else if(data.coc.url) {
-      row.append('<td><a href="' + data.coc.url + '">Yes</a></td>');
-    } else if(data.coc.planned) {
-      row.append('<td>Planned</td>');
-    }
-    this.element.append(row);
+    $.each(data, $.proxy(function(ix, row) { new Conf(this, row).render(); }, this));
   }
-});
+};
+
+var Conf = function(list, data) {
+  this.list = list;
+  this.data = data;
+  return this;
+}
+Conf.prototype = {
+  render: function() {
+    if(!this.data.coc) {
+      return;
+    }
+
+    var row = $('<tr></tr>');
+    row.append('<td>' + this.name() + '</td>');
+    row.append('<td>' + this.data.dates + '</td>');
+    row.append('<td>' + this.twitter() + '</td>');
+    row.append('<td>' + this.coc() + '</td>');
+    this.list.conferences.append(row);
+
+    if(this.data.coc.note) {
+      this.list.footnotes.append($('<li>' + this.data.coc.note + '</li>'));
+    }
+  },
+  name: function() {
+    return '<a href="' + this.data.url + '">' + this.data.name + '</a>'
+  },
+  twitter: function() {
+    return '<a href="http://twitter.com/' + this.data.twitter + '">@' + this.data.twitter + '</a>';
+  },
+  coc: function() {
+    if(this.data.coc.url) {
+      var coc = '<a href="' + this.data.coc.url + '">' + this.text() + '</a>';
+      if(this.data.coc.note) {
+        var num = $('tr', this.list.footnotes).length + 1;
+        coc = coc + ' <a href="#fn-' + num + '" class="fn">' + num + '</a>'
+      }
+      return coc;
+    } else {
+      return this.text();
+    }
+  },
+  text: function() {
+    if(!this.data.coc) {
+      text = '?';
+    } else if(this.data.coc.text) {
+      text = this.data.coc.text;
+    } else if(this.data.coc.url) {
+      text = 'Yes';
+    }
+    return text;
+  }
+}
 
 $(function() {
   var urls = [
@@ -214,5 +261,5 @@ $(function() {
     'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/tba.json',
     'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/past.json'
   ];
-  var confs = new Confs('#conferences tbody', urls);
+  var confs = new Confs('#conferences', urls);
 });
