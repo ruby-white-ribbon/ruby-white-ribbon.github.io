@@ -34,11 +34,19 @@
 
 var Confs = function(selector, urls) {
   this.element = $(selector);
-  this.fetch(urls, $.proxy(this.render, this));
+  this.fetch(urls);
 };
 
 Confs.data = [
   {
+    name: "Ruby Conf Australia",
+    twitter: "rubyconf_au",
+    coc: { url: "http://ruby.org.au/code-of-conduct.html" }
+  }, {
+    name: "Rubyfuza",
+    twitter: "rubyfuza",
+    coc: { url: "http://rubyfuza.org/coc" }
+  }, {
     name: "MountainWest RubyConf",
     twitter: "mwrc",
     coc: { url: "http://mtnwestrubyconf.org" }
@@ -147,10 +155,15 @@ Confs.data = [
     twitter: "gardencityrb",
     coc: { url: "http://www.gardencityruby.org/code-of-conduct" }
   }, {
-    name: "",
-    twitter: "",
-    coc: { url: "" }
+    name: "RubyConf Taiwan",
+    twitter: "rubytaiwan",
+    coc: { planned: true }
+  }, {
+    name: "wroc_love.rb",
+    twitter: "wrocloverb",
+    coc: { planned: true }
   },
+
 ];
 Confs.find = function(conf) {
   return $.grep(Confs.data, function(c) { if(conf.name == c.name || conf.twitter == c.twitter) return c; })[0]
