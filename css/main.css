@@ -232,12 +232,6 @@ h1, .h1 {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#conferences tfoot li p:first-child {
-  margin-top: 0;
-}
-#conferences tfoot li p:last-child {
-  margin-bottom: 0;
-}
 
 @media (min-width: 480px) {
   .inner {

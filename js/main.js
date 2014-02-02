@@ -169,7 +169,7 @@ Confs.data = [
     coc: {
       text: "Other",
       url: "http://rubyconfargentina.org/en/#admission-disclaimer",
-      note: "<p>Argentinian laws are strict about discrimination and harassment issues: Any kind of discrimination or harassment related to gender, race or religion is considered a felony in Argentina.</p>\n<p>The conference has the following statement in the footer of their website, and the same is announced to the attendees during the event: <em>The event organizers reserve the right to refuse admission or expel any participant engaging in incorrect behavior in accordance with the provisions of law.</em></p>\n<p>The conference takes aggressive behavior very seriously and does not allow such conducts within the hours of the conference.</p>"
+      note: "Argentinian laws are strict about discrimination and harassment issues: Any kind of discrimination or harassment related to gender, race or religion is considered a felony in Argentina. The conference has the following statement in the footer of their website, and the same is announced to the attendees during the event: <em>The event organizers reserve the right to refuse admission or expel any participant engaging in incorrect behavior in accordance with the provisions of law.</em> The conference takes aggressive behavior very seriously and does not allow such conducts within the hours of the conference."
     }
   },
 
@@ -211,6 +211,7 @@ var Conf = function(list, data) {
 Conf.prototype = {
   render: function() {
     if(!this.data.coc) {
+      console.log("skipping", this.data);
       return;
     }
 
