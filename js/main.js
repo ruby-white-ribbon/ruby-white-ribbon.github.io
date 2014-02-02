@@ -198,7 +198,7 @@ Confs.prototype = $.extend({
     row.append('<td>' + data.dates + '</td>');
     row.append('<td><a href="http://twitter.com/' + data.twitter + '">@' + data.twitter + '</a></td>');
     if(!data.coc) {
-      row.append('<td>No</td>');
+      row.append('<td>?</td>');
     } else if(data.coc.url) {
       row.append('<td><a href="' + data.coc.url + '">Yes</a></td>');
     } else if(data.coc.planned) {
