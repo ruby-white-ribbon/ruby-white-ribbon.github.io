@@ -34,7 +34,7 @@
 
 var Confs = function(selector, urls) {
   this.element = $(selector);
-  this.fetch(urls);
+  this.fetch(urls, $.proxy(this.render, this));
 };
 
 Confs.data = [
