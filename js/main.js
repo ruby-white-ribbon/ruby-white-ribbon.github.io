@@ -168,6 +168,10 @@ Confs.data = [
     twitter: "wrocloverb",
     coc: { text: "Planned" }
   }, {
+    name: "RailsIsrael",
+    twitter: "fogelmania",
+    coc: { text: "Planned" }
+  }, {
     name: "RubyConf Argentina",
     twitter: "rubyconfar",
     coc: {
