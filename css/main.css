@@ -217,7 +217,7 @@ h1, .h1 {
 }
 #conferences tfoot li {
   position: relative;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   list-style: none;
 }
 #conferences tfoot li:before {

@@ -152,6 +152,10 @@ Confs.data = [
     twitter: "rulu",
     coc: { url: "http://2013.rulu.eu/policies" }
   }, {
+    name: "WindyCityRails",
+    twitter: "windycityrails",
+    coc: { url: "http://www.windycityrails.org/code-of-conduct" }
+  }, {
     name: "Garden City RubyConf",
     twitter: "gardencityrb",
     coc: { url: "http://www.gardencityruby.org/code-of-conduct" }
@@ -233,16 +237,17 @@ Conf.prototype = {
     return '<a href="http://twitter.com/' + this.data.twitter + '">@' + this.data.twitter + '</a>';
   },
   coc: function() {
+    var coc;
     if(this.data.coc.url) {
-      var coc = '<a href="' + this.data.coc.url + '">' + this.text() + '</a>';
-      if(this.data.coc.note) {
-        var num = $('tr', this.list.footnotes).length + 1;
-        coc = coc + ' <a href="#fn-' + num + '" class="fn">' + num + '</a>'
-      }
-      return coc;
+      coc = '<a href="' + this.data.coc.url + '">' + this.text() + '</a>';
     } else {
-      return this.text();
+      coc = this.text();
     }
+    if(this.data.coc.note) {
+      var num = $('li', this.list.footnotes).length + 1;
+      coc = coc + ' <a href="#fn-' + num + '" class="fn">' + num + '</a>'
+    }
+    return coc;
   },
   text: function() {
     if(!this.data.coc) {
@@ -257,10 +262,13 @@ Conf.prototype = {
 }
 
 $(function() {
-  var urls = [
-    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/current.json',
-    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/tba.json',
-    'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/past.json'
-  ];
-  var confs = new Confs('#conferences', urls);
+  var selector = '#conferences';
+  if($(selector).length > 0) {
+    var urls = [
+      'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/current.json',
+      'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/tba.json',
+      'https://api.github.com/repos/ruby-conferences/ruby-conferences-site/contents/data/past.json'
+    ];
+    new Confs('#conferences', urls);
+  }
 });
