@@ -42,143 +42,149 @@ Confs.data = [
   {
     name: "Ruby Conf Australia",
     twitter: "rubyconf_au",
-    coc: { url: "http://ruby.org.au/code-of-conduct.html" }
+    policies: [
+      { text: "CoC", url: "http://ruby.org.au/code-of-conduct.html" },
+      { text: "Policies", url: "http://rubyconf.org.au/policies" }
+    ]
   }, {
     name: "Rubyfuza",
     twitter: "rubyfuza",
-    coc: { url: "http://rubyfuza.org/coc" }
+    policies: [{ text: "CoC", url: "http://rubyfuza.org/coc" }]
   }, {
     name: "MountainWest RubyConf",
     twitter: "mwrc",
-    coc: { url: "http://mtnwestrubyconf.org" }
+    policies: [{ text: "CoC", url: "http://mtnwestrubyconf.org" }]
   }, {
     name: "Los Angeles Ruby Conference",
     twitter: "larubyconf",
-    coc: { url: "http://larubyconf.com/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://larubyconf.com/code-of-conduct" }]
   }, {
     name: "Big Ruby",
     twitter: "bigrubyconf",
-    coc: { url: "http://www.bigrubyconf.com/code-of-conduct.html" }
+    policies: [{ text: "CoC", url: "http://www.bigrubyconf.com/code-of-conduct.html" }]
   }, {
     name: "RubySauna",
     twitter: "rubysauna",
-    coc: { url: "http://www.rubysauna.org/conduct" }
+    policies: [{ text: "CoC", url: "http://www.rubysauna.org/conduct" }]
   }, {
     name: "Ruby on Ales",
     twitter: "rbonales",
-    coc: { url: "http://onales.com/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://onales.com/code-of-conduct" }]
   }, {
     name: "RubyConf India",
     twitter: "rubyconfindia",
-    coc: { url: "http://rubyconfindia.org/2014/code.html" }
+    policies: [{ text: "CoC", url: "http://rubyconfindia.org/2014/code.html" }]
   }, {
     name: "RubyConf Philippines",
     twitter: "rubyconfph",
-    coc: { url: "http://rubyconf.ph/#codeofconduct" }
+    policies: [{ text: "CoC", url: "http://rubyconf.ph/#codeofconduct" }]
   }, {
     name: "RailsConf",
     twitter: "railsconf",
-    coc: { url: "http://www.railsconf.com/policies" }
+    policies: [{ text: "Policies", url: "http://www.railsconf.com/policies" }]
   }, {
     name: "Abril Pro Ruby",
     twitter: "abrilproruby",
-    coc: { url: "http://abrilproruby.com/en/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://abrilproruby.com/en/code-of-conduct" }]
   }, {
     name: "Scottish Ruby Conf",
     twitter: "scotrubyconf",
-    coc: { url: "http://2014.scottishrubyconference.com/conduct" }
+    policies: [{ text: "CoC", url: "http://2014.scottishrubyconference.com/conduct" }]
   }, {
     name: "RubyConf Uruguay",
     twitter: "rubyconfuruguay",
-    coc: { url: "http://www.rubyconfuruguay.org/en/conference_editions/8/pages/1" }
+    policies: [{ text: "CoC", url: "http://www.rubyconfuruguay.org/en/conference_editions/8/pages/1" }]
   }, {
     name: "EuRuKo",
     twitter: "euruko",
-    coc: { url: "http://euruko2013.org/codeofconduct" }
+    policies: [{ text: "CoC", url: "http://euruko2013.org/codeofconduct" }]
   }, {
     name: "Burlington Ruby Conference",
     twitter: "btvrubyconf",
-    coc: { url: "http://burlingtonrubyconference.com/conduct.html" }
+    policies: [
+      { text: "CoC", url: "http://burlingtonrubyconference.com/conduct.html" },
+      { text: "Diversity", url: "http://burlingtonrubyconference.com/diversity.html" }
+    ]
   }, {
     name: "Steel City Ruby",
     twitter: "steelcityruby",
-    coc: { text: "Planned" }
+    policies: [{ text: "Planned" }]
   }, {
     name: "Madison Ruby Conference",
     twitter: "madisonruby",
-    coc: { text: "Planned" }
+    policies: [{ text: "Planned" }]
   }, {
     name: "Frozen Rails",
     twitter: "frozenrails",
-    coc: { url: "http://2014.frozenrails.eu/code" }
+    policies: [{ text: "CoC", url: "http://2014.frozenrails.eu/code" }]
   }, {
     name: "Barcelona Ruby Conf",
     twitter: "baruco",
-    coc: { url: "http://www.baruco.org/code_of_conduct" }
+    policies: [{ text: "CoC", url: "http://www.baruco.org/code_of_conduct" }]
   }, {
     name: "Golden Gate Ruby Conference",
     twitter: "gogaruco",
-    coc: { url: "http://gogaruco.com/#conduct-heading" }
+    policies: [{ text: "CoC", url: "http://gogaruco.com/#conduct-heading" }]
   }, {
     name: "Ruby DCamp",
     twitter: "ruby_dcamp",
-    coc: { url: "http://rubydcamp.org/coc" }
+    policies: [{ text: "CoC", url: "http://rubydcamp.org/coc" }]
   }, {
     name: "RubyConf",
     twitter: "rubyconf",
-    coc: { url: "http://rubyconf.org/policies" }
+    policies: [{ text: "Policies", url: "http://rubyconf.org/policies" }]
   }, {
     name: "LoneStarRuby",
     twitter: "lonestarruby",
-    coc: { url: "http://www.lonestarruby.org/2013/lsrc#legal-information" }
+    policies: [{ text: "Policies", url: "http://www.lonestarruby.org/2013/lsrc#legal-information" }]
   }, {
     name: "GoRuCo",
     twitter: "goruco",
-    coc: { url: "http://goruco.com/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://goruco.com/code-of-conduct" }]
   }, {
     name: "Nickel City Ruby Conference",
     twitter: "nickelcityruby",
-    coc: { url: "https://github.com/nickelcityruby/code-of-conduct/blob/master/code_of_conduct.md" }
+    policies: [{ text: "CoC", url: "https://github.com/nickelcityruby/code-of-conduct/blob/master/code_of_conduct.md" }]
   }, {
     name: "Cascadia Ruby",
     twitter: "cascadiaruby",
-    coc: { url: "http://cascadiaruby.com/policies" }
+    policies: [{ text: "Policies", url: "http://cascadiaruby.com/policies" }]
   }, {
     name: "RubyNation",
     twitter: "rubynation",
-    coc: { url: "http://www.rubynation.org/code_of_conduct" }
+    policies: [{ text: "CoC", url: "http://www.rubynation.org/code_of_conduct" }]
   }, {
     name: "Ruby Lugdunum",
     twitter: "rulu",
-    coc: { url: "http://2013.rulu.eu/policies" }
+    policies: [{ text: "Policies", url: "http://2013.rulu.eu/policies" }]
   }, {
     name: "WindyCityRails",
     twitter: "windycityrails",
-    coc: { url: "http://www.windycityrails.org/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://www.windycityrails.org/code-of-conduct" }]
   }, {
     name: "Garden City RubyConf",
     twitter: "gardencityrb",
-    coc: { url: "http://www.gardencityruby.org/code-of-conduct" }
+    policies: [{ text: "CoC", url: "http://www.gardencityruby.org/code-of-conduct" }]
   }, {
     name: "RubyConf Taiwan",
     twitter: "rubytaiwan",
-    coc: { text: "Planned" }
+    policies: [{ text: "Planned" }]
   }, {
     name: "wroc_love.rb",
     twitter: "wrocloverb",
-    coc: { text: "Planned" }
+    policies: [{ text: "Planned" }]
   }, {
     name: "RailsIsrael",
     twitter: "fogelmania",
-    coc: { text: "Planned" }
+    policies: [{ text: "Planned" }]
   }, {
     name: "RubyConf Argentina",
     twitter: "rubyconfar",
-    coc: {
+    policies: [{
       text: "Other",
       url: "http://rubyconfargentina.org/en/#admission-disclaimer",
       note: "Argentinian laws are strict about discrimination and harassment issues: Any kind of discrimination or harassment related to gender, race or religion is considered a felony in Argentina. The conference has the following statement in the footer of their website, and the same is announced to the attendees during the event: <em>The event organizers reserve the right to refuse admission or expel any participant engaging in incorrect behavior in accordance with the provisions of law.</em> The conference takes aggressive behavior very seriously and does not allow such conducts within the hours of the conference."
-    }
+    }]
   },
 
 ];
@@ -199,7 +205,7 @@ Confs.prototype = {
       $.each(confs, function() {
         var conf = Confs.find(this);
         if(conf) {
-          this.coc = conf.coc;
+          this.policies = conf.policies;
         }
       });
 
@@ -218,8 +224,8 @@ var Conf = function(list, data) {
 }
 Conf.prototype = {
   render: function() {
-    if(!this.data.coc) {
-      console.log("skipping", this.data);
+    if(!this.data.policies) {
+      console.log('skipping ' + this.data.name, this.data);
       return;
     }
 
@@ -227,12 +233,14 @@ Conf.prototype = {
     row.append('<td>' + this.name() + '</td>');
     row.append('<td>' + this.data.dates + '</td>');
     row.append('<td>' + this.twitter() + '</td>');
-    row.append('<td>' + this.coc() + '</td>');
+    row.append('<td>' + this.policies() + '</td>');
     this.list.conferences.append(row);
 
-    if(this.data.coc.note) {
-      this.list.footnotes.append($('<li>' + this.data.coc.note + '</li>'));
-    }
+    $.each(this.data.policies, $.proxy(function(ix, policy) {
+      if(policy.note) {
+        this.list.footnotes.append($('<li>' + policy.note + '</li>'));
+      }
+    }, this));
   },
   name: function() {
     return '<a href="' + this.data.url + '">' + this.data.name + '</a>'
@@ -240,25 +248,29 @@ Conf.prototype = {
   twitter: function() {
     return '<a href="http://twitter.com/' + this.data.twitter + '">@' + this.data.twitter + '</a>';
   },
-  coc: function() {
-    var coc;
-    if(this.data.coc.url) {
-      coc = '<a href="' + this.data.coc.url + '">' + this.text() + '</a>';
-    } else {
-      coc = this.text();
-    }
-    if(this.data.coc.note) {
-      var num = $('li', this.list.footnotes).length + 1;
-      coc = coc + ' <a href="#fn-' + num + '" class="fn">' + num + '</a>'
-    }
-    return coc;
+  policies: function() {
+    return $.map(this.data.policies, $.proxy(function(data) {
+      return this.policy(data);
+    }, this)).join(', ');
   },
-  text: function() {
-    if(!this.data.coc) {
-      text = '?';
-    } else if(this.data.coc.text) {
-      text = this.data.coc.text;
-    } else if(this.data.coc.url) {
+  policy: function(data) {
+    var policy;
+    if(data.url) {
+      policy = '<a href="' + data.url + '">' + this.text(data) + '</a>';
+    } else {
+      policy = this.text(data);
+    }
+    if(data.note) {
+      var num = $('li', this.list.footnotes).length + 1;
+      policy = policy + ' <a href="#fn-' + num + '" class="fn">' + num + '</a>'
+    }
+    return policy;
+  },
+  text: function(data) {
+    var text;
+    if(data.text) {
+      text = data.text;
+    } else if(data.url) {
       text = 'Yes';
     }
     return text;
