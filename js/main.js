@@ -108,7 +108,7 @@ Confs.data = [
   }, {
     name: "Steel City Ruby",
     twitter: "steelcityruby",
-    policies: [{ text: "Planned" }]
+    policies: [{ text: "Policies", url: "http://steelcityruby.org/policies.html" }]
   }, {
     name: "Madison Ruby Conference",
     twitter: "madisonruby",
