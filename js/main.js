@@ -176,7 +176,7 @@ Confs.data = [
   }, {
     name: "RailsIsrael",
     twitter: "fogelmania",
-    policies: [{ text: "Planned" }]
+    policies: [{ text: "Planned", url: "http://railsisrael2014.events.co.il/pages/coc" }]
   }, {
     name: "RailsClub",
     twitter: "railsclub_ru",
