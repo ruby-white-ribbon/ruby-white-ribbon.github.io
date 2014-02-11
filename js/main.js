@@ -172,7 +172,7 @@ Confs.data = [
   }, {
     name: "wroc_love.rb",
     twitter: "wrocloverb",
-    policies: [{ text: "Planned" }]
+    policies: [{ text: "CoC", url: "http://wrocloverb.com" }]
   }, {
     name: "RailsIsrael",
     twitter: "fogelmania",
